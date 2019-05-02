@@ -135,20 +135,15 @@ function sum(a) {
 sum(arr);
 
 // task 12
-// let arr2 = [-1, -2, -3, -4, -5];
+let arr2 = [-1, -2, -3, -4, -5, 6];
 
-// function max(a) {
-//     let maxOfArr = null;
+function max(a) {
+    let maxOfArr = Math.max.apply(null, a);
 
-//     for (let i = 0; i < a.length; i++) {
-//         if (a[i] < a[i + 1] || a[i] < a[i - 1]) {
-//             maxOfArr = a[i];
-//         }
-//     }
-//     return maxOfArr;
-// }
+    return maxOfArr;
+}
 
-// console.log(max(arr2));
+console.log(max(arr2));
 
 // task 13
 let string = 'оно';

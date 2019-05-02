@@ -4,12 +4,12 @@ function storeSale() {
     var to = +prompt('Введите время окончания скидки');
     var present = +prompt('Введите текущее время');
 
-    if(from > to && present < to) {
-        console.log('Скидка действительна ночью');
-    } else if(from < to && present > from) {
-        console.log('Скидка действительна днём');
+    if (from > to && present > to || present < from) {
+        return 'Скидка действительна ночью';
+    } else if (from < to && present < to) {
+        return 'Скидка действительна днём';
     } else {
-        console.log('Скидка не действует');
+        return 'Скидка не действует';
     }
 }
 
@@ -18,20 +18,19 @@ storeSale();
 // task 2
 function random(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
-    rand = Math.round(rand)
-    console.log(rand)
+    return rand = Math.round(rand);
 }
 
-random(100, 20000)
+random(100, 20000);
 
 // task 3
 function reverse(str) {
     let reverseString = '';
 
-    for(let i = str.length - 1; i >= 0; i--) {
+    for (let i = str.length - 1; i >= 0; i--) {
         reverseString += str[i];
     }
-    console.log(reverseString);
+    return reverseString;
 }
 
 reverse('Hello world');
@@ -41,13 +40,13 @@ function fib(n) {
     return n <= 1 ? n : fib(n - 1) + fib(n - 2);
 }
 
-console.log(fib(3));
+fib(3);
 
 // task 5
 
 function fibo(n) {
     let a = 1, b = 1;
-    for(let i = 3; i <= n; i++) {
+    for (let i = 3; i <= n; i++) {
         let c = a + b;
         a = b;
         b = c;
@@ -55,7 +54,7 @@ function fibo(n) {
     return b;
 }
 
-console.log(fibo(77));
+fibo(77);
 
 // task 6
 function incCounter() {
@@ -68,10 +67,10 @@ function incCounter() {
 let func1 = incCounter();
 let func2 = incCounter();
 
-console.log(func1());
-console.log(func2());
-console.log(func1());
-console.log(func2());
+func1();
+func2();
+func1();
+func2();
 
 // task 7
 function multiA(a) {
@@ -83,44 +82,44 @@ function multiA(a) {
 let multi3 = multiA(3);
 let multi4 = multiA(4);
 
-console.log(multi3(2));
-console.log(multi4(2));
+multi3(2);
+multi4(2);
 
 // task 8
-function getName() {
-    let name = 'Maks';
-    return name;
+function getName(name) {
+    this.name = name;
+    return this.name;
 }
 
 let obj = {
-    name: getName()
-}
+    name: 'Maks',
+};
 
-console.log(obj)
+console.log(getName(obj.name));
+console.log(getName('Maks'));
 
 // task 9
-let number = null;
-
 function getDoubled(n) {
-    return number = (n + n) * 2;
+    this.number = n;
+    return this.number = (n + n) * 2;
 }
 
-function getDoubledTrippled(n) {
-    return n * 3;
+function getDoubledTrippled(m) {
+    this.number1 = m;
+    return this.number1 * 3;
 }
 
-console.log(getDoubledTrippled.call(this, getDoubled(4)));
+console.log(getDoubledTrippled.call(this, getDoubled(1)));
 
 // task 10
-let arr = [1, 2, 3, 4, 5];
+let arr1 = [1, 2, 3, 4, 5];
 
-function random() {
+function random1() {
     return Math.random() - 0.5;
 }
 
-arr.sort(random);
-
-console.log(arr);
+arr1.sort(random1);
+arr1;
 
 // task 11
 let arr = [1, 2, 3, 4, 5];
@@ -133,27 +132,30 @@ function sum(a) {
     return arrSum;
 }
 
-console.log(sum(arr));
+sum(arr);
 
 // task 12
-let arr = [1, 2, 3, 4, 5];
+// let arr2 = [-1, -2, -3, -4, -5];
 
-function max(a) {
-    let maxOfArr = null;
-    for(let i = 0; i < a.length; i++) {
-        a[i] > maxOfArr ? maxOfArr = a[i] : false;
-    }
-    return maxOfArr
-}
+// function max(a) {
+//     let maxOfArr = null;
 
-console.log(max(arr));
+//     for (let i = 0; i < a.length; i++) {
+//         if (a[i] < a[i + 1] || a[i] < a[i - 1]) {
+//             maxOfArr = a[i];
+//         }
+//     }
+//     return maxOfArr;
+// }
+
+// console.log(max(arr2));
 
 // task 13
 let string = 'оно';
 
-function pal (str) {
+function pal(str) {
     str = str.toLowerCase().replace(/ /g, '');
     return str.split('').reverse().join('') == str;
 }
 
-console.log(pal(string));
+pal(string);

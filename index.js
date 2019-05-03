@@ -86,8 +86,7 @@ multi3(2);
 multi4(2);
 
 // task 8
-function getName(name) {
-    this.name = name;
+function getName() {
     return this.name;
 }
 
@@ -95,21 +94,19 @@ let obj = {
     name: 'Maks',
 };
 
-console.log(getName(obj.name));
-console.log(getName('Maks'));
+console.log(getName.call(obj));
+console.log(getName());
 
 // task 9
-function getDoubled(n) {
-    this.number = n;
-    return this.number = (n + n) * 2;
+function getDoubled() {
+    return this.number * 2 * 2;
 }
 
-function getDoubledTrippled(m) {
-    this.number1 = m;
-    return this.number1 * 3;
+function getDoubledTrippled() {
+    return getDoubled.call(getDoubled()) * 3;
 }
 
-console.log(getDoubledTrippled.call(this, getDoubled(1)));
+console.log(getDoubledTrippled.call(getDoubled()));
 
 // task 10
 let arr1 = [1, 2, 3, 4, 5];
@@ -119,7 +116,6 @@ function random1() {
 }
 
 arr1.sort(random1);
-arr1;
 
 // task 11
 let arr = [1, 2, 3, 4, 5];
@@ -150,7 +146,7 @@ let string = 'оно';
 
 function pal(str) {
     str = str.toLowerCase().replace(/ /g, '');
-    return str.split('').reverse().join('') == str;
+    return str.split('').reverse().join('') === str;
 }
 
 pal(string);
